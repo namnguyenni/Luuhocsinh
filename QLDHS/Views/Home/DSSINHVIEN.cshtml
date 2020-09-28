@@ -1,0 +1,55 @@
+﻿
+
+<link rel="stylesheet" href="~/Content/css/bootstrap.min.css" />
+
+<link rel="stylesheet" href="~/Content/css/fontawesome/css/all.css">
+
+<section id="liststudent" class="content-section">
+    <div class="section-heading">
+        <h1>Danh sách<br /> sinh viên du học</h1>
+    </div>
+    <div class="section-content">
+        <div class="masonry">
+            <div class="row">
+               
+                    <div class="row">
+                        <div class="col-12">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">STT</th>
+                                        <th scope="col">Tên sinh viên</th>
+                                        <th scope="col">Quê quán</th>
+                                        <th scope="col">Nước du học</th>
+                                        <th scope="col">Điểm TB</th>
+                                        <th scope="col">Công cụ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (int i = 0; i < 10; i++)
+                                    {
+                                        <tr>
+                                            <th scope="row">@(i + 1)</th>
+                                            <td>Sinh viên @(i + 1)</td>
+                                            <td>Quê quán</td>
+                                            <td>Nước du học</td>
+                                            <td>2.846</td>
+                                            <td>
+                                                <button type="button" class="btn btn-primary" title="Xem chi tiết"><i class="far fa-eye"></i></button>
+                                                <button type="button" class="btn btn-success" title="Chỉnh sửa thông tin"><i class="fas fa-edit"></i></button>
+                                                <button type="button" class="btn btn-danger" title="Xóa sinh viên"><i class="far fa-trash-alt"></i></button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div> 
+                
+               
+        </div>
+    </div>
+</section>
+
+
