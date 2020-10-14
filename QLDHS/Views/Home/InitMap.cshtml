@@ -46,15 +46,17 @@
             var $ = jQuery;
 
             $('#Vietnam').click(function () {
-                $('#map1').vectorMap('set', 'focus', { region: 'VN', animate: true });
                 $("path.jvectormap-region[data-code='VN']").css("stroke", "red");
                 $('#map1').vectorMap('set', 'focus', { region: 'VN', animate: true });
+                $("path.jvectormap-region[data-code='VN']").css("stroke-width", "2");
+                $("path.jvectormap-region[data-code='VN']").attr("fill", "yellow");
 
             });
             $('#Conggo').click(function () {
-                $('#map1').vectorMap('set', 'focus', { region: 'RU', animate: true });
                 $("path.jvectormap-region[data-code='RU']").css("stroke", "red");
                 $('#map1').vectorMap('set', 'focus', { region: 'RU', animate: true });
+                $("path.jvectormap-region[data-code='RU']").css("stroke-width", "2");
+                $("path.jvectormap-region[data-code='RU']").attr("fill", "yellow");
             });
             $('#focus-coords').click(function () {
                 $('#map1').vectorMap('set', 'focus', { scale: 10, lat: 35, lng: 33, animate: true });
@@ -76,7 +78,7 @@
                         scale: 2,
                         animate: true
                     },
-                    backgroundColor: "#cff7ff",
+                    backgroundColor: "#86c0f7",
                     regionLabelStyle: {
                         initial: {
                             fill: '#44f265'
@@ -126,12 +128,14 @@
                     onRegionClick : function( e, code){
                         if ($("path.jvectormap-region[data-code='" + code + "']").attr("fill")=='yellow') {
                             $("path.jvectormap-region[data-code='" + code + "']").css("stroke", "black");
-                            $("path.jvectormap-region[data-code='" + code + "']").css("stroke-width", "1");
+                            $("path.jvectormap-region[data-code='" + code + "']").css("stroke-width", "0.5");
                             $('#map1').vectorMap('set', 'focus', { scale: 1, x: 0.5, y: 0.5, animate: true });
                         }
                         else {
                             $("path.jvectormap-region[data-code='" + code + "']").css("stroke", "red");
-                            $('#map1').vectorMap('set', 'focus', { region: ''+code, animate: true });
+                            $('#map1').vectorMap('set', 'focus', { region: '' + code, animate: true });
+                            $("path.jvectormap-region[data-code='" + code + "']").css("stroke-width", "2");
+                            $("path.jvectormap-region[data-code='" + code + "']").attr("fill", "yellow");
                         }
                     },
 
@@ -144,7 +148,7 @@
                                 label.html(label.html() + "<br/>Số lượng LHS : 0" );
                             }
                             else {
-                                label.html("<img src='../" + flagdata[code].image + "'>" + label.html() + '<br> Số lượng LHS :' + 0);
+                                label.html("<img src='../" + flagdata[code].image + "'> " + label.html() + '<br> Số lượng LHS :' + 0);
                             }
                         }
                         else {
@@ -153,7 +157,7 @@
                                 label.html(label.html() + "<br/>Số lượng lhs : " + mapdata[code]);
                             }
                             else {
-                                label.html("<img src='../" + flagdata[code].image + "'>" + label.html() + '<br> Số lượng LHS :' + mapdata[code]);
+                                label.html("<img src='../" + flagdata[code].image + "'> " + label.html() + '<br> Số lượng LHS :' + mapdata[code]);
                             }
                         }
 
@@ -162,6 +166,8 @@
                     labels: {
                         regions: {
                             render: function (code) {
+                                $("path.jvectormap-region[data-code='" + code + "']").css("stroke", "black");
+                                $("path.jvectormap-region[data-code='" + code + "']").css("stroke-width", "0.5");
 
                                 if (mapdata[code] === null || mapdata[code] === undefined||mapdata[code]==0) {
                                     return '';
@@ -219,6 +225,8 @@
     stroke: black;
     stroke-width: 1;
 }
+
+
     path{
         shape-rendering : crispEdges;
     }
@@ -226,29 +234,45 @@
 
 <div>
    Tìm kiếm :
-    <input id="input_searchmap" list="iso_map" name="f" mingleght="2" style="height:2.1em" value=""/>
+    <input id="input_searchmap" list="iso_map" name="f" minlenght="2" style="height:2.1em" value=""/>
     <datalist id="iso_map" style="height:2.1em;overflow:hidden" class="datalist_iso">
 
     </datalist>
     <input type="button" class="btn btn-primary" id="btnsearchRegion" value="Tìm kiếm"/>
+    <button id="Vietnam"><img src="~/Content/img/countryflag/vn_16.png" title="Việt Nam"/></button>
+    <button id="Conggo"><img src="~/Content/img/countryflag/ru_16.png" title="Nga"/></button>
+    <button id="focus-init" class="fa fa-chrome" title="Trờ về mặc định"></button>
  </div>
-<button id="Vietnam">Việt Nam</button>
-<button id="Conggo">Nga</button>
-<button id="focus-init">Trở về bản đồ mặc định</button>
+
     <div id="map1" style="height:600px"></div>
     <div style="height:20px"></div>
 
 <script>
-    for (var i = 0; i < arr.length; i++) {
-
-        var node = "<option madiaban='" + arr[i].madiaban + "' value='" + arr[i].diaban + "'>";
+    for (var i = 0; i < arr.length; i++) {       
+        var node = "<option value='" + arr[i].madiaban + "' label='" + arr[i].diaban + "'>";
         $("datalist").append(node);
     }
 
+    var CheckMadiaban = function (e) {
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i].madiaban == e) {
+                return true;
+            }            
+            
+        }
+        return false;
+    }
 
-    $("option").click(function () {
-        var region = this.attr("madiaban")
-        alert(region)
+    $("#btnsearchRegion").click(function () {
+        var region = $("#input_searchmap").val()
+        if (CheckMadiaban(region)) {
+            $("path.jvectormap-region[data-code='" + region + "']").css("stroke", "red");
+            $('#map1').vectorMap('set', 'focus', { region: '' + region, animate: true });
+            $("path.jvectormap-region[data-code='" + region + "']").attr("fill", "yellow");
+        }
+        else {
+            alert("Không tìm thấy quốc gia "+region)
+        }
 
     })
 </script>
