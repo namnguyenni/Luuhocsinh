@@ -32,7 +32,7 @@
     <div class="limiter">
         <div class="container-login100" style="background-image: url('../../Content/img/duhocsinh.jpg');">
             <div class="wrap-login100">
-                <form class="login100-form validate-form" id="myform">
+                <form class="login100-form validate-form" id="myform" method="post" action="@Url.Action("Login", "Home")">
                     <span class="login100-form-logo">
                         <i><img src="~/Content/img/logo.png" style="width:128px;height:128px"/></i>
                     </span>
@@ -52,14 +52,14 @@
                     </div>
 
                     <div class="contact100-form-checkbox">
-                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="savepass">
                         <label class="label-checkbox100" for="ckb1">
                             Lưu mật khẩu
                         </label>
                     </div>
 
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
+                        <button id="submitdata" class="login100-form-btn">
                             Đăng nhập
                         </button>
                     </div>
@@ -72,7 +72,7 @@
     <div id="dropDownSelect1"></div>
 
     <!--===============================================================================================-->
-    <script src="~/Content/js/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
     <!--===============================================================================================-->
     <script src="~/Content/js/vendor/animsition/js/animsition.min.js"></script>
     <!--===============================================================================================-->
@@ -88,7 +88,8 @@
     <!--===============================================================================================-->
     <script src="~/Content/js/main.js"></script>
     <script>
-            $("#submitdata").click(function (e) {
+        $("#submitdata").click(function (e) {
+            alert("nhan vao day")
                 var username = $("[name='username']").val();
                 var pass = $("[name='pass']").val();
                 var savepass = $("[name='savepass']").val();

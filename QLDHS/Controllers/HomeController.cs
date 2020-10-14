@@ -4,9 +4,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using QLDHS.Models.Entity;
+using QLDHS.Models.Function;
+using Newtonsoft.Json;
 
 namespace QLDHS.Controllers
 {
+    
+
+
+    public class DataMap
+    {
+        string iso {  get; set; }
+        int soluong { get; set; }
+
+        
+        
+    }
+
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -16,17 +31,70 @@ namespace QLDHS.Controllers
 
         public ActionResult InitMap()
         {
+            
+
+            try
+            {
+                F_Luuhocsinh f_lhs = new F_Luuhocsinh();
+                var lhs_time = f_lhs.Thongke_LHS_time(2019);
+                for (int i = 0; i < lhs_time.Count; i++)
+                {
+                    lhs_time[i].madiaban = lhs_time[i].madiaban.Trim();
+                }
+
+                ViewBag.lhs_time = lhs_time;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+
             return View();
+        }
+
+        public string ConvertThongKeLHS_Json(List<Thongke_lhs_time_class> dt)
+        {
+
+
+            string str = "{";
+            for (int i = 0; i < dt.Count; i++)
+            {
+                string temp1 = dt[i].madiaban.ToString();
+                temp1 = temp1.Trim();
+                string temp2 = dt[i].soluong.ToString();
+                str = str + (char)34 + temp1 + (char)34 + ":" + temp2 + ",";
+            }
+            str = str + "}";
+            str = str.Replace(",}", "}");
+            return str;
         }
 
         public ActionResult InitChart()
         {
+
+
             return View();
         }
         public ActionResult DSSINHVIEN()
         {
+            try
+            {
+                F_Luuhocsinh f_lhs = new F_Luuhocsinh();
+                ViewBag.alllhs = f_lhs.GetAll_LHS();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
+
             return View();
         }
+
+
 
         public ActionResult Hoatdongduhocsinh()
         {
@@ -41,11 +109,12 @@ namespace QLDHS.Controllers
         [HttpGet]
         public ActionResult Login()
         {
+           
             return View();
         }
 
         [HttpPost]
-        public ActionResult Login(string username,string pass, bool savepass)
+        public ActionResult Login(string username,string pass)
         {
             return Redirect("Index");
         }

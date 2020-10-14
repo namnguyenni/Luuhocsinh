@@ -1,152 +1,41 @@
-﻿<link href="~/Content/js/chartJs/dist/css/jquerytiptop.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="~/Content/js/chartJs/dist/css/jquery.simple-bar-graph.min.css" />
-<style>
-    body {
-        font-family: 'Times New Roman';
-        background-color: #f7f7f7;
-    }
+﻿
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<script src="~/Scripts/bootstrap.min.js">
+</script>
+<script src="~/Scripts/Chart.min.js"></script>
 
-    .container_chart {
-        margin: 30px auto;
-        width: 100%;
-        max-width: 100%;
-    }
+    <div>
+        <h2 style="text-decoration-color:yellow"> Bảng thông kê phân bố lưu học sinh  </h2>
+        <br />
 
-    .simple-bar-graph__caption {
-        font-size: 6pt;
-    }
-</style>
-<section id="chart" class="content-section">
-    <h1>BIỂU ĐỒ THỐNG KÊ DU HỌC SINH</h1>
-    <div class="section-content">
-        <div class="container_chart">
-            <hr />
-            <button class="btn btn-success" s data-action="update">Update Chart</button>
-            <div id="example-two">Loading...</div>
-        </div>
+        <canvas  class="d-flex justify-content-center"  id="thongke-chart" width="800" height="450"></canvas>
+
+
+        <hr />
     </div>
-</section>
-<script src="~/Content/js/chartJs/dist/js/jquery.simple-bar-graph.min.js"></script>
+
 <script>
-            var $ = jQuery;
-  var randomData = function() {
-    return [{
-        key: "Việt Nam",
-            value:
-        Math.floor(100 * Math.random() + 20)
-                }, {
-        key: "Việt Nam",
-            value:
-        Math.floor(100 * Math.random() + 20)
-             }, {
-        key: "Lào",
-            value:
-        Math.floor(100 * Math.random() + 20)
-             }, {
-        key: "Campuchia",
-            value:
-        Math.floor(100 * Math.random() + 20)
-             }, {
-        key: "Philipine",
-            value:
-        Math.floor(100 * Math.random() + 20)
-             }, {
-        key: "Đông ti mo",
-            value:
-        Math.floor(100 * Math.random() + 20)
-             }, {
-        key: "Nga",
-            value:
-        Math.floor(100 * Math.random() + 20)
-             }, {
-        key: "Bỉ",
-            value:
-        Math.floor(100 * Math.random() + 20)
-             }, {
-        key: "Nhật Bản",
-            value:
-        Math.floor(100 * Math.random() + 20)
-             }, {
-        key: "Hàn Quốc",
-            value:
-        Math.floor(100 * Math.random() + 20)
-             }, {
-        key: "Trung Quốc",
-            value:
-        Math.floor(100 * Math.random() + 20)
-             }, {
-        key: "Nam Phi",
-            value:
-        Math.floor(100 * Math.random() + 20)
-             }, {
-        key: "Úc",
-            value:
-        Math.floor(100 * Math.random() + 20)
-             }, {
-        key: "Công gô",
-            value:
-        Math.floor(100 * Math.random() + 20)
-             }, {
-        key: "Công gô",
-            value:
-        Math.floor(100 * Math.random() + 20)
-             }, {
-        key: "Phi",
-            value:
-        Math.floor(100 * Math.random() + 20)
-             }, {
-        key: "Phi",
-            value:
-        Math.floor(100 * Math.random() + 20)
-             }, {
-        key: "Phi",
-            value:
-        Math.floor(100 * Math.random() + 20)
-             }, {
-        key: "Phi",
-            value:
-        Math.floor(100 * Math.random() + 20)
-             }, {
-        key: "Phi",
-            value:
-        Math.floor(100 * Math.random() + 20)
-             }, {
-        key: "Phi",
-            value:
-        Math.floor(100 * Math.random() + 20)
-             }, {
-        key: "Phi",
-            value:
-        Math.floor(100 * Math.random() + 20)
-             }, {
-        key: "Phi",
-            value:
-        Math.floor(100 * Math.random() + 20)
-             }, {
-        key: "Phi",
-            value:
-        Math.floor(100 * Math.random() + 20)
-             }]
-    }
-    $("#example-two").simpleBarGraph({
-    data: randomData(),
-        rowsCount: 10,
-        height: "400px",
-        columnsWidth: "30px",
-        rowCaptionsWidth: "35px",
-        barsColor:
-    "#3D9970"
-    })
-    $("[data-action=update]").click(function() {
-        $("#example-two").simpleBarGraph({
-        data: randomData(),
-            rowsCount: 10,
-            height: "400px",
-            columnsWidth: "30px",
-            rowCaptionsWidth: "35px",
-            barsColor:
-        "#3D9970"
-        })
-    })
+    var x = new Chart(document.getElementById("thongke-chart"), {
+        type: 'pie',
+        data: {
+            labels: ["Việt Nam", "Nga", "Pháp", "Đức", "Hàn Quốc"],
+            datasets: [
+              {
+                  label: "Số lượng (người)",
+                  display: true,
+                  backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                  data: [2478, 5267, 734, 784, 433]
+              }
+            ]
+        },
+        options: {
+
+            title: {
+                display: true,
+                text: 'Bảng thông kê phân bố lưu học sinh'
+            }
+        }
+
+    });
 
 </script>
