@@ -136,6 +136,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BaocaoController.cs" />
+    <Compile Include="Controllers\HoatdongController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LuuHSController.cs" />
     <Compile Include="Controllers\ThongkeController.cs" />
@@ -173,6 +174,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\all.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -338,6 +340,7 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="Content\Detail_Aricle_Style.css" />
     <Content Include="Content\Detail_Style.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
@@ -868,12 +871,13 @@
     <Content Include="Scripts\jVectorMaps\world-ISO-A3\jquery-jvectormap-world-mill-de-DE.min.js.map" />
     <Content Include="Scripts\jVectorMaps\world-ISO-A2\jquery-jvectormap-world-mill-en-US.min.js.map" />
     <Content Include="Views\LuuHS\DetailLHS.cshtml" />
+    <Content Include="Views\Hoatdong\Index.cshtml" />
+    <Content Include="Views\Baocao\Index.cshtml" />
+    <Content Include="Views\Hoatdong\ArticleDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\css\" />
     <Folder Include="Content\js\vendor\" />
-    <Folder Include="Views\Baocao\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

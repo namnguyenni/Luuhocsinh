@@ -7,18 +7,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link rel="stylesheet" href="~/Content/Detail_Style.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css" integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+<link rel="stylesheet" href="~/Content/font-awesome.css" />
 
 <div class="container">
     <div class="row">
         <div class="col-lg-4 col-xl-4">
             <div class="card-box text-center">
-                <img src="@Model.Image" class="rounded-circle avatar-xl img-thumbnail" alt="profile-image">
+                <img src="~/@Model.Image" class="rounded-circle avatar-xl img-thumbnail" alt="profile-image">
 
                 <h4 class="mb-0">@Model.HoTen</h4>
                 <p class="text-muted">@Model.MaLHS</p>
-                <button type="button" class="btn btn-success btn-xs waves-effect mb-2 waves-light">Thêm ảnh</button>
+                <input id="fileInput" type="file" style="display:none;" />
+                <button type="button" onclick="document.getElementById('fileInput').click();" class="btn btn-success btn-xs waves-effect mb-2 waves-light">Thêm ảnh</button>
                 <button type="button" class="btn btn-danger btn-xs waves-effect mb-2 waves-light">Liên hệ</button>
 
                 <div class="text-left mt-3">
@@ -42,16 +42,16 @@
 
                 <ul class="social-list list-inline mt-3 mb-0">
                     <li class="list-inline-item">
-                        <a href="javascript: void(0);" class="social-list-item border-purple text-purple"><i class="fab fa-facebook"></i></a>
+                        <a href="javascript: void(0);" class="social-list-item border-purple text-purple"><i class="fa fa-facebook"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="javascript: void(0);" class="social-list-item border-danger text-danger"><i class="fab fa-google"></i></a>
+                        <a href="javascript: void(0);" class="social-list-item border-danger text-danger"><i class="fa fa-google"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="javascript: void(0);" class="social-list-item border-info text-info"><i class="fab fa-twitter"></i></a>
+                        <a href="javascript: void(0);" class="social-list-item border-info text-info"><i class="fa fa-twitter"></i></a>
                     </li>
                     <li class="list-inline-item">
-                        <a href="javascript: void(0);" class="social-list-item border-secondary text-secondary"><i class="fab fa-github"></i></a>
+                        <a href="javascript: void(0);" class="social-list-item border-secondary text-secondary"><i class="fa fa-github"></i></a>
                     </li>
                 </ul>
             </div> <!-- end card-box -->
@@ -186,12 +186,12 @@
                 <ul class="nav nav-pills navtab-bg">
                     <li class="nav-item">
                         <button  data-toggle="tab" aria-expanded="true" class="nav-link ml-0 active" id="about-me-button">
-                            <i class="mdi mdi-face-profile mr-1"></i>Xem thông tin
+                            <i class="fa fa-id-badge"></i> Xem thông tin
                         </button>
                     </li>
                     <li class="nav-item">
                         <button data-toggle="tab" aria-expanded="false" class="nav-link" id="setting-button">
-                            <i class="fa fa-edit"></i>Chỉnh sửa thông tin
+                            <i class="fa fa-edit"></i> Chỉnh sửa thông tin
                         </button>
                     </li>
                 </ul>
