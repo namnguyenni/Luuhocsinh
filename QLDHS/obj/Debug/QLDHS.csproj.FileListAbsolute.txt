@@ -170,3 +170,5 @@ E:\Luuhs\Luuhocsinh\QLDHS\obj\Debug\QLDHS.csprojResolveAssemblyReference.cache
 E:\Luuhs\Luuhocsinh\QLDHS\obj\Debug\QLDHS.csproj.ResolveComReference.cache
 E:\Luuhs\Luuhocsinh\QLDHS\obj\Debug\QLDHS.dll
 E:\Luuhs\Luuhocsinh\QLDHS\obj\Debug\QLDHS.pdb
+E:\Luuhs\Luuhocsinh\QLDHS\bin\Xceed.Document.NET.dll
+E:\Luuhs\Luuhocsinh\QLDHS\bin\Xceed.Words.NET.dll

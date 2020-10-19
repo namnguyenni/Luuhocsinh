@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="~/Scripts/core.css">
     <link rel="stylesheet" href="~/Content/bootstrap.min.css" >
     <link rel="icon" href="~/Content/img/logo.ico" />
-    <script src="~/Scripts/jquery-3.5.1.slim.min.js" ></script>
+    <script src="~/Scripts/jquery-3.5.1.min.js" ></script>
     <script src="~/Scripts/popper.min.js" ></script>
     <script src="~/Scripts/core.js"></script>
     <script src="~/Scripts/jquery-jvectormap.js"></script>
@@ -95,27 +95,35 @@
 
     <script>
         function setSelectedPageNav() {
-            var pathName = document.location.pathname;
-            switch (pathName) {
-                case '/':
-                case '/home':
-                    $("#home").css("background", "#0d0e0f");
-                    break;
-                case '/luuhs':
-                    $("#luuhs").css("background", "#0d0e0f");
-                    break;
-                case '/thongke':
-                    $("#thongke").css("background", "#0d0e0f");
-                    break;
-                case '/hoatdong':
-                    $("#hoatdong").css("background", "#0d0e0f");
-                    break;
-                case '/baocao':
-                    $("#baocao").css("background", "#0d0e0f");
-                    break;
-                default:
+            var pathName = location.pathname.toLowerCase()
+            var patt1 = new RegExp("/home");
+            var patt2 = new RegExp("/luuhs");
+            var patt3 = new RegExp("/thongke");
+            var patt4 = new RegExp("/hoatdong");
+            var patt5 = new RegExp("/baocao");
+
+            if (patt1.exec(pathName)!= null||pathName=="/") {
+                $("#home").css("background", "#0d0e0f");
+                
+            }
+            else if (patt2.exec(pathName) != null) {
+                $("#luuhs").css("background", "#0d0e0f");
+                
+            }
+            else if (patt3.exec(pathName) != null) {
+                $("#thongke").css("background", "#0d0e0f");
+            }
+            else if (patt4.exec(pathName) != null) {
+                $("#hoatdong").css("background", "#0d0e0f");
+            }
+            else if (patt5.exec(pathName) != null) {
+                $("#baocao").css("background", "#0d0e0f");
+            }
+            else {
 
             }
+
+            
         }
         setSelectedPageNav();
     </script>

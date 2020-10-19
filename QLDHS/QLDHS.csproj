@@ -125,6 +125,14 @@
       <Private>True</Private>
       <HintPath>packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Xceed.Document.NET, Version=1.7.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\DocX.1.7.1\lib\net40\Xceed.Document.NET.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Words.NET, Version=1.7.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\DocX.1.7.1\lib\net40\Xceed.Words.NET.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -171,6 +179,7 @@
     <Compile Include="Models\Entity\UserName.cs" />
     <Compile Include="Models\Entity\VePhep.cs" />
     <Compile Include="Models\Function\F_Luuhocsinh.cs" />
+    <Compile Include="Models\Function\Reporter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -595,7 +604,11 @@
     <Content Include="Content\img\countryflag\za_16.png" />
     <Content Include="Content\img\countryflag\zm_16.png" />
     <Content Include="Content\img\countryflag\zw_16.png" />
+    <Content Include="Content\img\Excel.jpg" />
     <Content Include="Content\img\img_lhs\1.png" />
+    <Content Include="Content\img\img_lhs\Avatar-Female.jpg" />
+    <Content Include="Content\img\img_lhs\Avatar-male.jpg" />
+    <Content Include="Content\img\Word.jpg" />
     <Content Include="Content\jquery-jvectormap.css" />
     <Content Include="Content\jquerysctiptop.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />

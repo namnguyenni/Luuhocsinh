@@ -13,5 +13,12 @@ namespace QLDHS.Controllers
         {
             return View();
         }
+
+        //public ActionResult Baocao_Excel_1()
+        //{
+
+            
+        //}
+
     }
 }

@@ -128,7 +128,7 @@
                     onRegionClick : function( e, code){
                         if ($("path.jvectormap-region[data-code='" + code + "']").attr("fill")=='yellow') {
                             $("path.jvectormap-region[data-code='" + code + "']").css("stroke", "black");
-                            $("path.jvectormap-region[data-code='" + code + "']").css("stroke-width", "0.5");
+                            $("path.jvectormap-region[data-code='" + code + "']").css("stroke-width", "0.3");
                             $('#map1').vectorMap('set', 'focus', { scale: 1, x: 0.5, y: 0.5, animate: true });
                         }
                         else {
@@ -167,7 +167,7 @@
                         regions: {
                             render: function (code) {
                                 $("path.jvectormap-region[data-code='" + code + "']").css("stroke", "black");
-                                $("path.jvectormap-region[data-code='" + code + "']").css("stroke-width", "0.5");
+                                $("path.jvectormap-region[data-code='" + code + "']").css("stroke-width", "0.3");
 
                                 if (mapdata[code] === null || mapdata[code] === undefined||mapdata[code]==0) {
                                     return '';

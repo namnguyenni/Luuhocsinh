@@ -116,6 +116,7 @@ namespace QLDHS.Controllers
         [HttpPost]
         public ActionResult Login(string username,string pass)
         {
+
             return Redirect("Index");
         }
 
