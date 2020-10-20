@@ -90,28 +90,33 @@ namespace QLDHS.Models.Function
     public class F_Luuhocsinh
     {
 
-    
 
+        List<InforLHS> allInfoLHS = new LUUHS().Database.SqlQuery<InforLHS>("exec dbo.getAll_LHS").ToList();
 
         /// <summary>
         /// Lấy danh sách tất cả lưu học sinh
         /// </summary>
         /// <returns></returns>
         public List<InforLHS> GetAll_LHS()
-        {
-            LUUHS lhs = new LUUHS();                        
-            return lhs.Database.SqlQuery<InforLHS>("exec dbo.getAll_LHS").ToList();
+        {                         
+            return allInfoLHS;
         }
 
-        public LuuHocSinh Detai_LHS_Ma(string malhs)
-        {
-            LUUHS lhs = new LUUHS();
+        public InforLHS Detai_LHS_Ma(string malhs)
+        {           
+            foreach (var item in allInfoLHS)
+            {
+                if (item.MaLHS.Replace(" ", String.Empty) == malhs)
+                {
+                    return item;
+                }
+            }
 
-            LuuHocSinh Detail = lhs.LuuHocSinhs.Where(x => x.MaLHS == malhs).FirstOrDefault();
+
+            return null;
 
 
 
-            return Detail;
         }
 
         public List<Thongke_lhs_time_class> Thongke_LHS_time(int year)

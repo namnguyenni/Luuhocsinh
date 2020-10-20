@@ -56,13 +56,19 @@
             }
             @foreach (var item in all_luuhs)
             {
+                
+                    string ngaysinhStr = item.NgaySinh.ToString();
+                    DateTime date = (Convert.ToDateTime(ngaysinhStr));
+                    string ngaysinhdate = date.Day + "-" + date.Month + "-" + date.Year;
+
+                
                 <tr>
                     <th scope="row">@item.MaLHS</th>
-                    <td>@item.Hoten</td>
-                    <td>@item.NgaySinh</td>
-                    <td>@item.GioiTinh</td>
-                    <td>@item.QuanHam</td>
-                    <td>
+                    <td scope="row">@item.Hoten</td>
+                    <td scope="row">@ngaysinhdate</td>
+                    <td scope="row">@item.GioiTinh</td>
+                    <td scope="row">@item.QuanHam</td>
+                    <td scope="row">
                         <a href="~/LuuHS/DetailLHS?MALHS=@item.MaLHS"><div type="button" class="btn btn-primary" title="Xem chi tiết"><i class="fa fa-eye"></i></div></a>
                         <a href="#"><div type="button" class="btn btn-success" title="Chỉnh sửa thông tin"><i class="fa fa-edit"></i></div></a>
                         <a href="#"><div type="button" class="btn btn-danger" title="Xóa sinh viên"><i class="fa fa-trash-o"></i></div></a>
