@@ -57,13 +57,13 @@
                             </thead>
                             <tbody>
                                 @{
-                                    var all_luuhs = ViewBag.alllhs as IEnumerable<QLDHS.Models.Entity.LuuHocSinh>;
+                                    var all_luuhs = ViewBag.alllhs as IEnumerable<QLDHS.Models.Entity.InforLHS>;
                                 }
                                 @foreach (var item in all_luuhs)
                                 {
                                     <tr>
                                         <th scope="row">@item.MaLHS</th>
-                                        <td>@item.HoTen</td>
+                                        <td>@item.Hoten</td>
                                         <td>@item.NgaySinh</td>
                                         <td>@item.GioiTinh</td>
                                         <td>@item.QuanHam</td>

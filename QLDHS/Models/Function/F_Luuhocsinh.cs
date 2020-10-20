@@ -97,10 +97,10 @@ namespace QLDHS.Models.Function
         /// Lấy danh sách tất cả lưu học sinh
         /// </summary>
         /// <returns></returns>
-        public List<AllInforLHS> GetAll_LHS()
+        public List<InforLHS> GetAll_LHS()
         {
             LUUHS lhs = new LUUHS();                        
-            return lhs.Database.SqlQuery<AllInforLHS>("exec dbo.ThongKe_LHS_ThoiGian").ToList();
+            return lhs.Database.SqlQuery<InforLHS>("exec dbo.getAll_LHS").ToList();
         }
 
         public LuuHocSinh Detai_LHS_Ma(string malhs)
@@ -117,7 +117,7 @@ namespace QLDHS.Models.Function
         public List<Thongke_lhs_time_class> Thongke_LHS_time(int year)
         {
             LUUHS lhs = new LUUHS();
-            SqlParameter endDate = new SqlParameter("@date", year);
+            SqlParameter endDate = new SqlParameter("@date", 2015);
             endDate.SqlDbType = SqlDbType.Int;
             return lhs.Database.SqlQuery<Thongke_lhs_time_class>("exec dbo.ThongKe_LHS_ThoiGian @date",  endDate).ToList();
             

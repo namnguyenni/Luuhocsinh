@@ -1,21 +1,22 @@
-﻿@model QLDHS.Models.Entity.LuuHocSinh
+﻿@model QLDHS.Models.Entity.InforLHS
 
 
 
 @{
     ViewBag.Title = "DetailLHS";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~k/Views/Shared/_Layout.cshtml";
 }
 <link rel="stylesheet" href="~/Content/Detail_Style.css" />
 <link rel="stylesheet" href="~/Content/font-awesome.css" />
 
 <div class="container">
     <div class="row">
+
         <div class="col-lg-4 col-xl-4">
             <div class="card-box text-center">
                 <img id="avatar" src="~/@Model.Image" class="avatar-xl img-thumbnail" alt="profile-image">
 
-                <h4 class="mb-0">@Model.HoTen</h4>
+                <h4 class="mb-0">@Model.Hoten</h4>
                 <p class="text-muted">@Model.MaLHS</p>
                 <form>
                     <input id="fileInput" type="file" style="display:none;" accept="image/*" />
@@ -27,7 +28,7 @@
                     <p class="text-muted font-13 mb-3">
                         
                     </p>
-                    <p class="text-muted mb-2 font-13"><strong>Tên đầy đủ :</strong> <span class="ml-2">@Model.HoTen</span></p>
+                    <p class="text-muted mb-2 font-13"><strong>Tên đầy đủ :</strong> <span class="ml-2">@Model.Hoten</span></p>
 
                     <p class="text-muted mb-2 font-13">
                         <strong>Điện thoại :</strong><span class="ml-2">
