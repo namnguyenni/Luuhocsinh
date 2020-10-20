@@ -159,6 +159,7 @@
     <Compile Include="Models\Entity\DiaBanDaoTao.cs" />
     <Compile Include="Models\Entity\DoiTuong.cs" />
     <Compile Include="Models\Entity\DonVi.cs" />
+    <Compile Include="Models\Entity\inforLHS.cs" />
     <Compile Include="Models\Entity\KetQuaHocTap.cs" />
     <Compile Include="Models\Entity\KhenThuong.cs" />
     <Compile Include="Models\Entity\KyLuat.cs" />
