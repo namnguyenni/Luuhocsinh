@@ -235,3 +235,10 @@ D:\Tai_lieu_hoc_tap\Luuhocsinh\QLDHS\obj\Debug\QLDHS.csproj.CoreCompileInputs.ca
 D:\Tai_lieu_hoc_tap\Luuhocsinh\QLDHS\obj\Debug\QLDHS.csproj.CopyComplete
 D:\Tai_lieu_hoc_tap\Luuhocsinh\QLDHS\obj\Debug\QLDHS.dll
 D:\Tai_lieu_hoc_tap\Luuhocsinh\QLDHS\obj\Debug\QLDHS.pdb
+E:\Luuhs\Luuhocsinh\QLDHS\bin\ClosedXML.dll
+E:\Luuhs\Luuhocsinh\QLDHS\bin\DocumentFormat.OpenXml.dll
+E:\Luuhs\Luuhocsinh\QLDHS\bin\ExcelNumberFormat.dll
+E:\Luuhs\Luuhocsinh\QLDHS\bin\ClosedXML.pdb
+E:\Luuhs\Luuhocsinh\QLDHS\bin\ClosedXML.xml
+E:\Luuhs\Luuhocsinh\QLDHS\bin\DocumentFormat.OpenXml.xml
+E:\Luuhs\Luuhocsinh\QLDHS\bin\ExcelNumberFormat.xml
