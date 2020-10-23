@@ -184,17 +184,17 @@ namespace QLDHS.Controllers
                 var current_row = 1;
 
                 #region header
-                worksheet.Cell(current_row, 1).Value = data.;
+                worksheet.Cell(current_row, 1).Value = "sd";
                 worksheet.Cell(current_row, 2).Value = "Nước";
                 worksheet.Cell(current_row, 3).Value = "Số lượng";
                 #endregion
 
 
                 #region thân
-                foreach (var item in new F_Luuhocsinh().GetAll_LHS())
+                foreach (var item in new F_Luuhocsinh().Thongke_LHS_time(2019))
                 {
                     current_row++;
-                    worksheet.Cell(current_row, 1).Value = item.;
+                    worksheet.Cell(current_row, 1).Value = item.madiaban;
                     worksheet.Cell(current_row, 2).Value = item.diaban;
                     worksheet.Cell(current_row, 3).Value = item.soluong;
                 }
