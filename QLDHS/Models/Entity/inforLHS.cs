@@ -76,6 +76,19 @@ namespace QLDHS.Models.Entity
         public string ThongTinGiaDinh { get; set; }
         public string NoiOHienNay { get; set; }
         public string ThanhPhanGiaDinh { get; set; }
+        public DateTime? ThoiGianBatDauHoc { get; set; }
+        public DateTime? ThoiGianKetThucHoc { get; set; }
+        public string ThoiGianDaoTao { get; set; }
+        public int? MaDKP { get; set; }
+        public string DienKinhPhi { get; set; }
+       
+        public string BacDaoTao { get; set; }
+        public int? TinhTrangTotNghiep { get; set; }
+        public int? MaKhoa { get; set; }
+       
+
+        
+
 
     }
 }
