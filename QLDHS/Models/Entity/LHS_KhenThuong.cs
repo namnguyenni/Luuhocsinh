@@ -14,6 +14,7 @@ namespace QLDHS.Models.Entity
         [StringLength(20)]
         public string MaLHS { get; set; }
 
+
         public int MaKhenThuong { get; set; }
 
         [Column(TypeName = "date")]
