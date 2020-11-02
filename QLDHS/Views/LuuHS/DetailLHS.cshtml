@@ -1,19 +1,52 @@
 ﻿@model QLDHS.Models.Entity.InforLHS
-
-
-
 @{
-    ViewBag.Title = "DetailLHS - "+Model.Hoten;
+    ViewBag.Title = "DetailLHS - " + Model.Hoten;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <link rel="stylesheet" href="~/Content/Detail_Style.css" />
 <link rel="stylesheet" href="~/Content/font-awesome.css" />
+<script src="~/Scripts/ValidateScript.js"></script>
 
+@* //////////////// *@
+<div class="modal fade" id="modaladdChuyennganh" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Thêm mới </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                <form>
+                    <div class="md-form mb-5">
+                        <i class="fa fa-pencil grey-text"></i>
+                        <input type="text" id="defaultForm-label" class="form-control validate" required>
+                        <label data-error="wrong" data-success="right" for="defaultForm-label">Nhãn</label>
+                    </div>
+
+                    <div class="md-form mb-4">
+                        <i class="fa fa-pencil prefix grey-text"></i>
+                        <input type="text" id="defaultForm-value" class="form-control validate" required>
+                        <label data-error="wrong" data-success="right" for="defaultForm-value">Giá trị</label>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <input class="btn btn-default" value="Thêm" type="submit" />
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+@*////////////////  *@
 <div class="container">
     <div class="row">
 
         <div class="col-lg-4 col-xl-4">
-            <div class="card-box text-center">
+            <div class="card-box text-center" style="position: sticky;top: 0; z-index:3">
                 <img id="avatar" src="~/@Model.Image" class="avatar-xl img-thumbnail" alt="profile-image">
 
                 <h4 class="mb-0">@Model.Hoten</h4>
@@ -190,7 +223,7 @@
                     </li>
                     <li class="nav-item">
                         <button data-toggle="tab" aria-expanded="false" class="nav-link" id="setting-button">
-                            <i class="fa fa-edit"></i> Chỉnh sửa thông tin
+                            <i class="fa fa-edit"></i> Chỉnh sửa thông tin cơ bản
                         </button>
                     </li>
                 </ul>
@@ -234,91 +267,263 @@
                     <!-- end timeline content-->
 
                     <div class="tab-pane" id="settings">
-                        <form>
-                            <h5 class="mb-3 text-uppercase bg-light p-2"><i class="mdi mdi-account-circle mr-1"></i> Thông tin cơ bản</h5>
 
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="firstname">Họ và Tên</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Nhập họ và tên">
+                        <form action="./EditThongtincoban" enctype="multipart/form-data" method="post">
+                                <h5 class="mb-3 text-uppercase bg-light p-2" style="position: sticky;top: 0; z-index:3"><i class="mdi mdi-account-circle mr-1"></i> Thông tin cơ bản</h5>
+                                <input name="MaLHS" id="MaLHS" value="@ViewBag.malhs" style="display:none" />
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="firstname">Họ và tên</label>
+                                            <input value="@Model.Hoten" type="text" class="form-control" id="HoTen" name="HoTen" placeholder="Họ và tên"required>
+                                        </div>
                                     </div>
+                                     @{ 
+                                         string ngaysinhdate = null;
+                                         if (Model.NgaySinh != null)
+                                         {
+                                             string ngaysinhStr = Model.NgaySinh.ToString();
+                                             DateTime date = (Convert.ToDateTime(ngaysinhStr));
+                                             ngaysinhdate = date.Year + "-" + date.Month + "-" + date.Day;
+                                         } }
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="lastname">Ngày sinh</label>
+                                            <input value="@ngaysinhdate" type="date" class="form-control" id="NgaySinh" name="NgaySinh" placeholder="Ngày sinh" required>
+                                        </div>
+                                    </div>
+                                </div> <!-- end row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="firstname">Giới tính</label>
+                                            <select class="form-control" id="GioiTinh" name="GioiTinh" placeholder="Giới tính" required>
+                                                <option value="Nam">Nam</option>
+                                                <option value="Nữ">Nữ</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="lastname">Dân tộc</label>
+                                            <input value="@Model.DanToc" type="text" class="form-control" id="DanToc" name="DanToc" placeholder="Dân tộc" required>
+                                        </div>
+                                    </div> <!-- end col -->
+                                </div> <!-- end row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="firstname">Tôn giáo</label>
+                                            <input value="@Model.TonGiao" type="text" class="form-control" id="TonGiao" name="TonGiao" placeholder="Tôn giáo">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="lastname">Miền</label>
+                                            <select type="text" class="form-control" id="Mien" name="Mien" placeholder="Miền">
+                                                <option value="Bắc">Bắc</option>
+                                                <option value="Trung">Trung</option>
+                                                <option value="Nam">Nam</option>
+                                            </select>
+                                        </div>
+                                    </div> <!-- end col -->
+                                </div> <!-- end row -->
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="firstname">Thông tin liên lạc</label>
+                                            <input value="@Model.ThongTinLienLac" type="text" class="form-control" id="ThongTinLienLac" name="ThongTinLienLac" placeholder="Thông tin liên lạc">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="lastname">Đối tượng</label>
+                                            <select type="text" class="form-control" id="MaDoiTuong" name="MaDoiTuong" placeholder="Đối tượng" required>
+                                                @foreach (var item in @ViewBag.Doituong)
+                                                {
+                                                    <option value="@item.MaDoiTuong">@item.DoiTuong1</option>
+                                                }
+
+                                            </select>
+                                        </div>
+                                    </div> <!-- end col -->
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="lastname">Giới tính</label>
-                                        <input type="text" class="form-control" id="gioitinh" placeholder="gioitinh">
-                                    </div>
-                                </div> <!-- end col -->
-                            </div> <!-- end row -->
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="firstname">Quê quán</label>
-                                        <input type="text" class="form-control" id="quequan" placeholder="Quê quán">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="lastname">Giới tính</label>
-                                        <input type="text" class="form-control" id="ngayvaodang" placeholder="ngayvaodang">
-                                    </div>
-                                </div> <!-- end col -->
-                            </div> <!-- end row -->
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="firstname">Quê quán</label>
-                                        <input type="text" class="form-control" id="ngayvaodoan" placeholder="ngayvaodoan">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="lastname">Giới tính</label>
-                                        <input type="text" class="form-control" id="ngaynhapngu" placeholder="ngaynhapngu">
-                                    </div>
-                                </div> <!-- end col -->
-                            </div> <!-- end row -->
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="firstname">Quê quán</label>
-                                        <input type="text" class="form-control" id="dantoc" placeholder="dantoc">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="lastname">Giới tính</label>
-                                        <input type="text" class="form-control" id="tongiao" placeholder="tongiao">
-                                    </div>
-                                </div> <!-- end col -->
-                            </div> <!-- end row -->
-
-
-
-
-
-
-
 
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label for="userbio">Bio</label>
-                                        <textarea class="form-control" id="quatrinhcongtac" rows="4" placeholder="Qúa trình công tác..."></textarea>
+                                        <label for="userbio">Quê quán</label>
+                                        <textarea class="form-control" id="QueQuan" name="QueQuan" rows="2" placeholder="Quê quán">@Model.QueQuan</textarea>
                                     </div>
-                                </div> <!-- end col -->
+                                </div>
                             </div> <!-- end row -->
 
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="userbio">Nơi ở hiện nay</label>
+                                        <textarea class="form-control" id="NoiOHienNay" name="NoiOHienNay" rows="2" placeholder="Quê quán">@Model.NoiOHienNay</textarea>
+                                    </div>
+                                </div>
+                            </div> <!-- end row -->
 
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="firstname">Khoa</label>
+                                        <input value="@Model.Khoa" type="text" class="form-control" id="Khoa" name="Khoa" placeholder="Khoa">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="lastname">Bộ môn</label>
+                                        <select type="text" class="form-control" id="BoMon" name="BoMon" placeholder="Bộ môn" required>
+                                            @foreach (var item in @ViewBag.Doituong)
+                                            {
+                                                <option value="@item.MaDoiTuong">@item.DoiTuong1</option>
+                                            }
 
-                            <h5 class="mb-3 text-uppercase bg-light p-2"><i class="mdi mdi-office-building mr-1"></i> Company Info</h5>
+                                        </select>
+                                    </div>
+                                </div> <!-- end col -->
+                            </div>
 
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="firstname">Số hiệu sĩ quan</label>
+                                        <input type="text" class="form-control" id="SoHieuSiQuan" name="SoHieuSiQuan" placeholder="Số hiệu sĩ quan">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="lastname">Thời gian nhập ngũ</label>
+                                        <select type="text" class="form-control" id="NgayNhapNgu" name="NgayNhapNgu" placeholder="Ngày nhập ngũ" required>
+                                            @foreach (var item in @ViewBag.Doituong)
+                                            {
+                                                <option value="@item.MaDoiTuong">@item.DoiTuong1</option>
+                                            }
 
-                            <h5 class="mb-3 text-uppercase bg-light p-2"><i class="mdi mdi-earth mr-1"></i> Social</h5>
+                                        </select>
+                                    </div>
+                                </div> <!-- end col -->
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="firstname">Ngày vào đoàn</label>
+                                        <input type="date" class="form-control" id="NgayVaoDoan" name="NgayVaoDoan" placeholder="Ngày vào đoàn">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="lastname">Ngày vào đảng</label>
+                                        <input type="date" class="form-control" id="MaDoiTuong" name="MaDoiTuong" placeholder="Ngày vào đảng" required>
+                                    </div>
+                                </div> <!-- end col -->
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="firstname">Ngày chuyển đảng chính thức</label>
+                                        <input type="date" class="form-control" id="ThongTinLienLac" name="ThongTinLienLac" placeholder="Ngày chuyển đảng chính thức">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="lastname">Con em cán bộ</label>
+                                        <select type="text" class="form-control" id="MaDoiTuong" name="MaDoiTuong" placeholder="Con em cán bộ" required>
+                                            @foreach (var item in @ViewBag.Doituong)
+                                            {
+                                                <option value="@item.MaDoiTuong">@item.DoiTuong1</option>
+                                            }
+
+                                        </select>
+                                    </div>
+                                </div> <!-- end col -->
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="firstname">Thành phần gia đình</label>
+                                        <input type="text" class="form-control" id="ThongTinLienLac" name="ThongTinLienLac" placeholder="Thành phần gia đình">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="lastname">Địa chỉ liên lạc gia đình</label>
+                                        <select type="text" class="form-control" id="MaDoiTuong" name="MaDoiTuong" placeholder="Địa chỉ liên lạc gia đình" required>
+                                            @foreach (var item in @ViewBag.Doituong)
+                                            {
+                                                <option value="@item.MaDoiTuong">@item.DoiTuong1</option>
+                                            }
+
+                                        </select>
+                                    </div>
+                                </div> <!-- end col -->
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="firstname">Bố:</label>
+                                        <input type="text" class="form-control" id="ThongTinLienLac" name="ThongTinLienLac" placeholder="Thông tin bố">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="lastname">Mẹ:</label>
+                                        <select type="text" class="form-control" id="MaDoiTuong" name="MaDoiTuong" placeholder="Thông tin mẹ" required>
+                                            @foreach (var item in @ViewBag.Doituong)
+                                            {
+                                                <option value="@item.MaDoiTuong">@item.DoiTuong1</option>
+                                            }
+
+                                        </select>
+                                    </div>
+                                </div> <!-- end col -->
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="firstname">Đơn vị trước khi đi học</label>
+                                        <input type="text" class="form-control" id="ThongTinLienLac" name="ThongTinLienLac" placeholder="Đơn vị trước khi đi học">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="lastname">Đoàn trưởng(Lưu đoàn trưởng)</label>
+                                        <select type="text" class="form-control" id="MaDoiTuong" name="MaDoiTuong" placeholder="Đoàn trưởng" required>
+                                            @foreach (var item in @ViewBag.Doituong)
+                                            {
+                                                <option value="@item.MaDoiTuong">@item.DoiTuong1</option>
+                                            }
+
+                                        </select>
+                                    </div>
+                                </div> <!-- end col -->
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="userbio">Lĩnh vực thế mạnh</label>
+                                        <textarea class="form-control" id="QueQuan" name="QueQuan" rows="2" placeholder="Lĩnh vực thế mạnh"></textarea>
+                                    </div>
+                                </div>
+                            </div> <!-- end row -->
+
+                                <div class="text-right">
+                                    <button type="submit" class="btn btn-success waves-effect waves-light mt-2"><i class="mdi mdi-content-save"></i> Lưu</button>
+                                </div>
+                            </form> <!-- CHỉnh sửa thông tin cơ bản-->
 
 
                             <div class="row">
@@ -344,37 +549,12 @@
                                         </div>
                                     </div>
                                 </div> <!-- end col -->
-                            </div> <!-- end row -->
+                            </div> <!-- end row icon -->
 
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="social-sky">Skype</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="fab fa-skype"></i></span>
-                                            </div>
-                                            <input type="text" class="form-control" id="social-sky" placeholder="username">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="social-gh">Github</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="fab fa-github"></i></span>
-                                            </div>
-                                            <input type="text" class="form-control" id="social-gh" placeholder="Username">
-                                        </div>
-                                    </div>
-                                </div> <!-- end col -->
-                            </div> <!-- end row -->
 
                             <div class="text-right">
                                 <button type="submit" class="btn btn-success waves-effect waves-light mt-2"><i class="mdi mdi-content-save"></i> Save</button>
                             </div>
-                        </form>
                     </div>
                     <!-- end settings content-->
 
@@ -397,6 +577,14 @@
         if ($("#avatar").attr("src") == "/") {
             $("#avatar").attr("src","../Content/img/img_lhs/Avatar-Female.jpg")
         }
+        //thêm các giá trị trong form chỉnh sửa
+        var gioitinh = '@Model.GioiTinh';
+        $('#GioiTinh option[value=' + gioitinh + ']').attr('selected', 'selected');
+        var mien = '@Model.Mien';
+        $('#Mien option[value=' + mien + ']').attr('selected', 'selected');
+        @*var madoituong = '@Model';
+        $('#MaDoiTuong option[value=' + mien + ']').attr('selected', 'selected');*@
+
     });
 
 
@@ -404,14 +592,10 @@
 </script>
 <script>
     $("#fileInput").change(function(){
-        alert("thay doi");
         var formData = new FormData();
         formData.append('AvatarImg', $('#fileInput')[0].files[0]);
-        alert("thay doi");
         var id = "@Model.MaLHS";
-        alert("thay doi");
         formData.append('id',id)
-        alert("thay doi");
         $.ajax({
             url: 'UploadAvatar',
             type: 'POST',

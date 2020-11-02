@@ -180,13 +180,290 @@ namespace QLDHS.Controllers
         {
             using (var workbook = new XLWorkbook())
             {
-                var worksheet = workbook.Worksheets.Add("Thong ke so luong luu hoc sinh");
+                var worksheet = workbook.Worksheets.Add("Thống kê thông tin lưu học sinh");
                 var current_row = 1;
-
+                var current_header_col = 1;
                 #region header
+
                 worksheet.Cell(current_row, 1).Value = "sd";
                 worksheet.Cell(current_row, 2).Value = "Nước";
                 worksheet.Cell(current_row, 3).Value = "Số lượng";
+
+                foreach (var item in ReportAttribute)
+                {
+                    if (item == "Hoten")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "MaLHS")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "NgaySinh")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "ThongTinLienLac")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "QueQuan")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "GioiTinh")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "SoHieuSiQuan")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "NgayNhapNgu")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "NgayVaoDoan")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "NgayVaoDang")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "DanToc")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "TonGiao")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "Mien")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "HocPhi")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "SinhHoatPhi")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "BHYT")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "ChiPhiKhac")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "GiaHanThoiGianDaoTao")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "Image")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "QuanHam")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "NghienCuuNoiBat")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "MaDVBM")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "MaDVBQP")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "CSDaoTao")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "DiaBan")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "MaKetQua")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "Ki1")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "Ki2")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "Ki3")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "Ki4")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "Ki5")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "Ki7")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "Ki8")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "Ki9")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "Ki10")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "Ki11")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "Ki12")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "Ki13")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "Ki14")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "PhanLoaiTotNghiep")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "DiemTrungBinh")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "MoTaKetQua")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "LuuNoMon")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "LHSID")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "MaCNDaotao1")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "MaCNDaotao2")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "BoMon")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "MaDVCapTren")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "Khoa")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "DonViBQP")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "CNDT1")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "MN1")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "CNDT2")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "MN2")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "QuaTrinhCongTac")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "TenLuanVan")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "KetQuaBaoVe")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "QuyetDinhDuHoc")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "NganhDT1")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "NganhDT2")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "KiLuat")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "KhenThuong")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "CanBo")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "DiaChiLienLac")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "ThongTinGiaDinh")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "NoiOHienNay")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+                    else if (item == "ThanhPhanGiaDinh")
+                    {
+                        worksheet.Cell(current_row, current_header_col).Value = "Họ tên";
+                    }
+
+
+
+                    current_header_col++;
+                }
                 #endregion
 
 

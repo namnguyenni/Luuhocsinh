@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using QLDHS.Models.Entity;
 
 namespace QLDHS.Controllers
 {
@@ -28,12 +29,57 @@ namespace QLDHS.Controllers
 
         public ActionResult DetailLHS(string MALHS)
         {
+            LUUHS lhs = new LUUHS();
             F_Luuhocsinh f_lhs = new F_Luuhocsinh();
             var detaillhs = f_lhs.Detai_LHS_Ma(MALHS);
 
+            ViewBag.Doituong = lhs.DoiTuongs.Where(x => x.MaDoiTuong != 0).ToList();
             return View(detaillhs);
         }
 
+        /// <summary>
+        /// Thêm mới lưu học sinh(trang view)
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult AddNewLHS()
+        {
+            LUUHS lhs = new LUUHS();
+            var count = lhs.LuuHocSinhs.Count();
+            string malhs = "SV"+DateTime.UtcNow.Year;
+            if (count<100 && count>10)
+            {
+                malhs += "0";
+            }
+            else if (count > 0 && count<10)
+            {
+                malhs += "00";
+            }
+            else { }
+            ViewBag.malhs = malhs+count;
+
+            ViewBag.Doituong = lhs.DoiTuongs.Where(x=>x.MaDoiTuong!=0).ToList();
+            return View();
+        }
+
+
+        /// <summary>
+        /// thêm mới lhs (post)
+        /// </summary>
+        /// <param name="luuhocsinh"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult AddNewLHS(LuuHocSinh luuhocsinh)
+        {
+            F_Luuhocsinh f_lhs = new F_Luuhocsinh();
+            f_lhs.AddNewLHS(luuhocsinh);
+            return (RedirectToAction("/luuhs/addnewlhs"));
+        }
+
+
+        
+
+
+        //chuyen ngành
 
         [HttpPost]
         public string UploadAvatar(HttpPostedFileBase AvatarImg,string id)

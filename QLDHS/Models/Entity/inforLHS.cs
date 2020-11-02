@@ -53,8 +53,8 @@ namespace QLDHS.Models.Entity
         public string MoTaKetQua { get; set; }
         public string LuuNoMon { get; set; }
         public int? LHSID { get; set; }
-        public string MaCNDaotao1 { get; set; }
-        public string MaCNDaotao2 { get; set; }
+        public int? MaCNDaotao1 { get; set; }
+        public int? MaCNDaotao2 { get; set; }
         public string BoMon { get; set; }
         public int? MaDVCapTren { get; set; }
         public string Khoa { get; set; }
@@ -76,6 +76,19 @@ namespace QLDHS.Models.Entity
         public string ThongTinGiaDinh { get; set; }
         public string NoiOHienNay { get; set; }
         public string ThanhPhanGiaDinh { get; set; }
+        public DateTime? ThoiGianBatDauHoc { get; set; }
+        public DateTime? ThoiGianKetThucHoc { get; set; }
+        public string ThoiGianDaoTao { get; set; }
+        public int? MaDKP { get; set; }
+        public string DienKinhPhi { get; set; }
+
+        public string BacDaoTao { get; set; }
+        public int? TinhTrangTotNghiep { get; set; }
+        public int? MaKhoa { get; set; }
+
+
+
+
 
     }
 }

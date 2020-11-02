@@ -861,6 +861,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Scripts\ValidateScript.js" />
     <Content Include="Scripts\VectorMapData.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -904,6 +905,7 @@
     <Content Include="Views\Baocao\Index.cshtml" />
     <Content Include="Views\Hoatdong\ArticleDetail.cshtml" />
     <Content Include="Views\Baocao\_PartialMultiReport.cshtml" />
+    <Content Include="Views\LuuHS\AddNewLHS.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
