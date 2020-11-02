@@ -86,9 +86,7 @@ namespace QLDHS.Models.Entity
         public int? TinhTrangTotNghiep { get; set; }
         public int? MaKhoa { get; set; }
 
-       
 
-        
 
 
 

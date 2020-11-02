@@ -242,3 +242,10 @@ E:\Luuhs\Luuhocsinh\QLDHS\bin\ClosedXML.pdb
 E:\Luuhs\Luuhocsinh\QLDHS\bin\ClosedXML.xml
 E:\Luuhs\Luuhocsinh\QLDHS\bin\DocumentFormat.OpenXml.xml
 E:\Luuhs\Luuhocsinh\QLDHS\bin\ExcelNumberFormat.xml
+D:\Tai_lieu_hoc_tap\Luuhocsinh\QLDHS\bin\ClosedXML.dll
+D:\Tai_lieu_hoc_tap\Luuhocsinh\QLDHS\bin\DocumentFormat.OpenXml.dll
+D:\Tai_lieu_hoc_tap\Luuhocsinh\QLDHS\bin\ExcelNumberFormat.dll
+D:\Tai_lieu_hoc_tap\Luuhocsinh\QLDHS\bin\ClosedXML.pdb
+D:\Tai_lieu_hoc_tap\Luuhocsinh\QLDHS\bin\ClosedXML.xml
+D:\Tai_lieu_hoc_tap\Luuhocsinh\QLDHS\bin\DocumentFormat.OpenXml.xml
+D:\Tai_lieu_hoc_tap\Luuhocsinh\QLDHS\bin\ExcelNumberFormat.xml
