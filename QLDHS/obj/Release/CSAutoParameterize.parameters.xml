@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="LUUHS-Web.config Connection String" description="LUUHS Connection String used in web.config by the application to access the database." defaultValue="data source=DESKTOP-C6JGQK7;initial catalog=QuanLyLHS;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Tai_lieu_hoc_tap\\Luuhocsinh\\QLDHS\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='LUUHS']/@connectionString" />
+  </parameter>
+</parameters>

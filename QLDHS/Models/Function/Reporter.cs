@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using QLDHS.Models.Entity;
 namespace QLDHS.Models.Function
 {
     public class Reporter
@@ -26,6 +26,9 @@ namespace QLDHS.Models.Function
             grid.RenderControl(htw);
             Response.Write(sw.ToString());
             Response.End();
+            F_Luuhocsinh lhs = new F_Luuhocsinh();
+            List<InforLHS> list = lhs.GetAll_LHS();
+        
         }
 
         //báo cáo 2
